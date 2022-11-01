@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.routes.publication_routes import publications_router
+from app.routes.commentary_routes import commentaries_router
 
 tags_metadata = [{
   "name": "Publications",
@@ -26,3 +28,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(publications_router)
+app.include_router(commentaries_router)
