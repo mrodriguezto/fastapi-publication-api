@@ -1,7 +1,9 @@
+''' Publication Model for MongoDB '''
 from datetime import datetime
 from mongoengine import Document, StringField, DateField, EmbeddedDocumentListField, ListField, EmbeddedDocumentField
 
 from .commentary import Commentary
+
 
 class Publication(Document):
     '''
@@ -17,6 +19,12 @@ class Publication(Document):
     created_at = DateField(default=datetime.utcnow)
 
     def to_json(self):
+        '''
+        Method to convert Publication to json
+
+        Returns:
+            dict: The Publication as json
+        '''
         publication_dict = {
             "publication_id": str(self.pk),
             "title": self.title,

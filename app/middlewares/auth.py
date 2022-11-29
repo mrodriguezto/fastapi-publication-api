@@ -1,3 +1,4 @@
+'''Module for managing user authentication'''
 import os
 
 from fastapi import Depends, HTTPException, status
@@ -14,7 +15,17 @@ ALGORITHM = os.getenv("ALGORITHM")
 
 security = HTTPBearer()
 
+
 async def get_token_payload(credentials: HTTPBasicCredentials = Depends(security)):
+    '''
+    Gets the token payload from the credentials
+
+    Parameters:
+        credentials (HTTPBasicCredentials): The credentials of the user.
+
+    Returns:
+        token_data: The token data of the user.
+    '''
 
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
@@ -23,7 +34,7 @@ async def get_token_payload(credentials: HTTPBasicCredentials = Depends(security
     )
 
     token = credentials.credentials
-    
+
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         user_id: str = payload.get("id")
@@ -32,6 +43,5 @@ async def get_token_payload(credentials: HTTPBasicCredentials = Depends(security
         token_data = TokenData(id=user_id)
     except JWTError:
         raise credentials_exception
-    
+
     return token_data
-    

@@ -1,3 +1,4 @@
+''' Commentary Model for MongoDB '''
 from datetime import datetime
 from bson.objectid import ObjectId
 
@@ -14,6 +15,12 @@ class Commentary(EmbeddedDocument):
     created_at = DateField(default=datetime.utcnow)
 
     def to_dict(self):
+        '''
+        Method to convert Commentary to dict 
+
+        Returns:
+            dict: The Commentary as dict
+        '''
         commentary_dict = {
             "commentary_id": str(self._id),
             "author_id": self.author_id,

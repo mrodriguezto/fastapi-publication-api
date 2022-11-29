@@ -1,3 +1,4 @@
+'''Service for managing publications'''
 import os
 import cloudinary
 import cloudinary.uploader
@@ -25,6 +26,16 @@ class PublicationService:
     '''
     @staticmethod
     async def create_publication(author, title, content, file):
+        '''
+        Creates a new publication.
+
+        Parameters:
+            author (str): The author of the publication.
+            title (str): The title of the publication.
+            content (str): The content of the publication.
+            file (UploadFile): The file of the publication.
+        '''
+
         upload_result = cloudinary.uploader.upload(
             file, folder="kisaragi_publications")
         url = upload_result["url"]
@@ -43,6 +54,13 @@ class PublicationService:
 
     @staticmethod
     async def delete_publication(publication_id, author_id):
+        '''
+        Deletes a publication by its id.
+
+        Parameters:
+            publication_id (str): The id of the publication.
+            author_id (str): The id of the author.
+        '''
         publication_obj = Publication.objects(
             id=publication_id,
             author_id=author_id
@@ -55,6 +73,12 @@ class PublicationService:
 
     @staticmethod
     async def get_publication(publication_id):
+        '''
+        Gets only one publication based on its id.
+
+        Parameters:
+            publication_id (str): The id of the publication.
+        '''
         publication_obj = Publication.objects(
             id=publication_id,
         ).first()
@@ -66,6 +90,13 @@ class PublicationService:
 
     @staticmethod
     async def get_publications(skip, limit):
+        '''
+        Gets all publications.
+
+        Parameters:
+            skip (int): The number of publications to skip.
+            limit (int): The number of publications to return.
+        '''
         publication_objs = Publication.objects().limit(limit).skip(skip)
         publications = []
         publications = list(
@@ -74,6 +105,14 @@ class PublicationService:
 
     @staticmethod
     async def get_publications_by_hashtag(skip, limit, hashtag):
+        '''
+        Gets all publications by hashtag.
+
+        Parameters:
+            skip (int): The number of publications to skip.
+            limit (int): The number of publications to return.
+            hashtag (str): The hashtag to search.
+        '''
         publication_objs = Publication.objects(
             hashtags__in=[hashtag]).limit(limit).skip(skip)
         publications = []
