@@ -31,7 +31,7 @@ if __name__ == "__main__":
     # test(f'{url}/publications', "POST", body={"title": "Test Title", "content": "Test Content"})
     # test("{url}/publications", "DELETE", id="1")
     # test("{url}/publications", "GET", id="1")
-    print("---------------SUTE FOR PUBLICATIONS--------------")
+    print("----------------SUTE FOR PUBLICATIONS---------------")
     test(f'{url}/publications', "GET")
     test(f'{url}/publications/hashtags', "GET")
 
