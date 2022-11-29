@@ -32,10 +32,12 @@ class CommentaryService:
         if publication_obj is None:
             raise HTTPException(
                 status_code=400, detail="Publication not found")
+
         new_commentary = Commentary(
             author_id=author.id,
             commentary=commentary
         )
+        
         publication_obj.commentaries.append(new_commentary)
         publication_obj.save()
         return {"msg": "Commentary created successfully"}

@@ -36,12 +36,17 @@ async def get_token_payload(credentials: HTTPBasicCredentials = Depends(security
     token = credentials.credentials
 
     try:
+
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         user_id: str = payload.get("id")
+
         if user_id is None:
             raise credentials_exception
+
         token_data = TokenData(id=user_id)
+
     except JWTError:
+        
         raise credentials_exception
 
     return token_data
