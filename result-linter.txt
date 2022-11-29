@@ -1,0 +1,146 @@
+************* Module main
+main.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module app.middlewares.auth
+app\middlewares\auth.py:45:8: W0707: Consider explicitly re-raising using 'except JWTError as exc' and 'raise credentials_exception from exc' (raise-missing-from)
+************* Module app.models.commentary
+app\models\commentary.py:19:44: C0303: Trailing whitespace (trailing-whitespace)
+************* Module app.models.publication
+app\models\publication.py:3:0: C0301: Line too long (117/100) (line-too-long)
+app\models\publication.py:21:4: W0221: Variadics removed in overridden 'Publication.to_json' method (arguments-differ)
+app\models\publication.py:3:0: W0611: Unused EmbeddedDocumentField imported from mongoengine (unused-import)
+************* Module app.routes.commentary_routes
+app\routes\commentary_routes.py:23:0: C0301: Line too long (119/100) (line-too-long)
+app\routes\commentary_routes.py:23:28: C0103: Argument name "id" doesn't conform to snake_case naming style (invalid-name)
+app\routes\commentary_routes.py:23:28: W0622: Redefining built-in 'id' (redefined-builtin)
+app\routes\commentary_routes.py:2:0: W0611: Unused Optional imported from typing (unused-import)
+app\routes\commentary_routes.py:3:0: W0611: Unused File imported from fastapi (unused-import)
+app\routes\commentary_routes.py:3:0: W0611: Unused UploadFile imported from fastapi (unused-import)
+************* Module app.routes.publication_routes
+app\routes\publication_routes.py:45:0: C0301: Line too long (107/100) (line-too-long)
+app\routes\publication_routes.py:27:29: C0103: Argument name "id" doesn't conform to snake_case naming style (invalid-name)
+app\routes\publication_routes.py:27:29: W0622: Redefining built-in 'id' (redefined-builtin)
+app\routes\publication_routes.py:34:26: C0103: Argument name "id" doesn't conform to snake_case naming style (invalid-name)
+app\routes\publication_routes.py:34:26: W0622: Redefining built-in 'id' (redefined-builtin)
+************* Module app.schemas.publication_schema
+app\schemas\publication_schema.py:5:0: E0611: No name 'BaseModel' in module 'pydantic' (no-name-in-module)
+app\schemas\publication_schema.py:8:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+app\schemas\publication_schema.py:16:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+************* Module app.schemas.token_schema
+app\schemas\token_schema.py:5:0: E0611: No name 'BaseModel' in module 'pydantic' (no-name-in-module)
+app\schemas\token_schema.py:8:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+app\schemas\token_schema.py:14:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+************* Module app.services.commentary_service
+app\services\commentary_service.py:28:26: E1101: Class 'Publication' has no 'objects' member (no-member)
+app\services\commentary_service.py:56:26: E1101: Class 'Publication' has no 'objects' member (no-member)
+************* Module app.services.publication_service
+app\services\publication_service.py:64:26: E1101: Class 'Publication' has no 'objects' member (no-member)
+app\services\publication_service.py:82:26: E1101: Class 'Publication' has no 'objects' member (no-member)
+app\services\publication_service.py:100:27: E1101: Class 'Publication' has no 'objects' member (no-member)
+app\services\publication_service.py:116:27: E1101: Class 'Publication' has no 'objects' member (no-member)
+
+
+Report
+======
+185 statements analysed.
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |11     |11         |=          |90.91       |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|class    |8      |8          |=          |100.00      |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|method   |9      |9          |=          |100.00      |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|function |9      |9          |=          |100.00      |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+490 lines have been analyzed
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |278    |56.73 |278      |=          |
++----------+-------+------+---------+-----------+
+|docstring |130    |26.53 |130      |=          |
++----------+-------+------+---------+-----------+
+|comment   |0      |0.00  |NC       |NC         |
++----------+-------+------+---------+-----------+
+|empty     |82     |16.73 |82       |=          |
++----------+-------+------+---------+-----------+
+
+
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |0     |0        |0          |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |0.000 |0.000    |=          |
++-------------------------+------+---------+-----------+
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |8      |8        |8          |
++-----------+-------+---------+-----------+
+|refactor   |4      |4        |4          |
++-----------+-------+---------+-----------+
+|warning    |9      |9        |9          |
++-----------+-------+---------+-----------+
+|error      |8      |8        |8          |
++-----------+-------+---------+-----------+
+
+
+
+Messages
+--------
+
++-------------------------+------------+
+|message id               |occurrences |
++=========================+============+
+|no-member                |6           |
++-------------------------+------------+
+|unused-import            |4           |
++-------------------------+------------+
+|too-few-public-methods   |4           |
++-------------------------+------------+
+|redefined-builtin        |3           |
++-------------------------+------------+
+|line-too-long            |3           |
++-------------------------+------------+
+|invalid-name             |3           |
++-------------------------+------------+
+|no-name-in-module        |2           |
++-------------------------+------------+
+|trailing-whitespace      |1           |
++-------------------------+------------+
+|raise-missing-from       |1           |
++-------------------------+------------+
+|missing-module-docstring |1           |
++-------------------------+------------+
+|arguments-differ         |1           |
++-------------------------+------------+
+
+
+
+
+------------------------------------------------------------------
+Your code has been rated at 6.70/10 (previous run: 6.70/10, +0.00)
+

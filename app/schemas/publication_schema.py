@@ -6,7 +6,9 @@ from pydantic import BaseModel
 
 
 class Commentary(BaseModel):
+
     '''Commentary Schema'''
+
     commentary_id: str
     author_id: str
     commentary: str
@@ -14,7 +16,9 @@ class Commentary(BaseModel):
 
 
 class Publication(BaseModel):
+
     '''Publication Schema'''
+    
     publication_id: str
     title: str
     content: str
